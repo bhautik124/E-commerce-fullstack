@@ -30,7 +30,7 @@ const Product = ({ cartItems, setCartItems }) => {
   const addToCart = async (product) => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/cart/createCart",
+        "https://e-commerce-fullstack-vkv8.onrender.com/cart/createCart",
         {
           userId,
           productId: product._id,
@@ -68,7 +68,7 @@ const Product = ({ cartItems, setCartItems }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/product/get", {
+        const response = await axios.get("https://e-commerce-fullstack-vkv8.onrender.com/product/get", {
           withCredentials: true,
         });
         if (response.status === 200) {
