@@ -22,7 +22,7 @@ const UserLogin = ({ setUser }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/user/loginUser",
+        "https://e-commerce-fullstack-vkv8.onrender.com/user/loginUser",
         { email, password },
         { withCredentials: true }
       );
