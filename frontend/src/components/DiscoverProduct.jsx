@@ -20,7 +20,7 @@ const DiscoverProduct = ({ cartItems, updateCartItems }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/product/get/${id}`);
+        const response = await fetch(`https://e-commerce-fullstack-vkv8.onrender.com/product/get/${id}`);
         const data = await response.json();
         setProduct(data);
         setLoading(false);
@@ -38,7 +38,7 @@ const DiscoverProduct = ({ cartItems, updateCartItems }) => {
     const fetchSuggestProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/product/get/${id}/suggestions`
+          `https://e-commerce-fullstack-vkv8.onrender.com/product/get/${id}/suggestions`
         );
         const data = await response.json();
         setSuggestions(data.suggestions);
@@ -53,7 +53,7 @@ const DiscoverProduct = ({ cartItems, updateCartItems }) => {
   const addToCart = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/cart/createCart",
+        "https://e-commerce-fullstack-vkv8.onrender.com/cart/createCart",
         {
           userId,
           productId: product._id,
