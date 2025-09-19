@@ -12,7 +12,7 @@ const Cart = ({ cartItems, updateCartItems }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("https://e-commerce-fullstack-backend-0y06.onrender.com/cart/getCart", {
+        const response = await axios.get("http://localhost:8000/cart/getCart", {
           withCredentials: true,
         });
 
@@ -35,7 +35,7 @@ const Cart = ({ cartItems, updateCartItems }) => {
   const removeFromCart = async (productId) => {
     try {
       const response = await axios.delete(
-        "https://e-commerce-fullstack-backend-0y06.onrender.com/cart/remover",
+        "http://localhost:8000/cart/remover",
         {
           data: {
             userId,
@@ -62,7 +62,7 @@ const Cart = ({ cartItems, updateCartItems }) => {
   const updateCartQuantity = async (itemId, newQuantity) => {
     try {
       const response = await axios.patch(
-        "https://e-commerce-fullstack-backend-0y06.onrender.com/cart/updatequantity",
+        "http://localhost:8000/cart/updatequantity",
         {
           userId,
           productId: itemId,
