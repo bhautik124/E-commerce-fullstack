@@ -3,7 +3,7 @@ import { getUser } from "../reducers/userReducer";
 
 export const asynchFetchUserDetails = () => async (dispatch) => {
   try {
-    const response = await axios.get("https://e-commerce-fullstack-backend-0y06.onrender.com/user/check-auth", {
+    const response = await axios.get("http://localhost:8000/user/check-auth", {
       withCredentials: true, 
     });
     dispatch(getUser(response.data.user)); 
