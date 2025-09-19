@@ -25,7 +25,7 @@ const UserLogin = ({ setUser }) => {
 
     try {
       const res = await axios.post(
-        "https://e-commerce-fullstack-backend-0y06.onrender.com/user/loginUser",
+        "http://localhost:8000/user/loginUser",
         { email, password },
         { withCredentials: true }
       );
