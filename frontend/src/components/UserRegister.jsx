@@ -31,7 +31,7 @@ const UserRegister = () => {
 
     try {
       const res = await axios.post(
-        "https://e-commerce-fullstack-backend-0y06.onrender.com/user/createUser",
+        "http://localhost:8000/user/createUser",
         { username, email, phone, password },
         { withCredentials: true }
       );
