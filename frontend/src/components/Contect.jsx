@@ -21,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/contect/contectform",
+        "https://e-commerce-fullstack-backend-0y06.onrender.com/contect/contectform",
         formdata,
         { withCredentials: true }
       );
