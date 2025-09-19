@@ -33,7 +33,7 @@ const Buy = ({ cartItems, updateCartItems }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("https://e-commerce-fullstack-backend-0y06.onrender.com/cart/getCart", {
+        const response = await axios.get("http://localhost:8000/cart/getCart", {
           withCredentials: true,
         });
         if (response.status === 200) {
@@ -74,7 +74,7 @@ const Buy = ({ cartItems, updateCartItems }) => {
   const handleApplyCoupon = async () => {
     try {
       const response = await axios.get(
-        `https://e-commerce-fullstack-backend-0y06.onrender.com/payment/coupons/${couponCode}`,
+        `http://localhost:8000/payment/coupons/${couponCode}`,
         { withCredentials: true }
       );
       if (response.data.success) {
@@ -123,7 +123,7 @@ const Buy = ({ cartItems, updateCartItems }) => {
       }
 
       const response = await axios.post(
-        "https://e-commerce-fullstack-backend-0y06.onrender.com/payment/paymentdetail",
+        "http://localhost:8000/payment/paymentdetail",
         paymentData,
         { withCredentials: true }
       );
