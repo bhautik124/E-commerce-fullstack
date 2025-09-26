@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { asynchFetchUserDetails } from "../store/actions/FetchUserApi";
+import { getUser } from "../store/reducers/userReducer";
 import { showSuccessToast, showErrorToast, showInfoToast } from "../utils/toast.jsx";
 
 const UserLogin = ({ setUser }) => {
