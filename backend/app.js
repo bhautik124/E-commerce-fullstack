@@ -19,7 +19,7 @@ app.use(cookieParser());
 // Apply CORS middleware before routes
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow requests from your frontend
+    origin: "https://e-commerce-fullstack-frontend.onrender.com", // Allow requests from your deployed frontend
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true, // Enable cookies or authentication tokens
   })

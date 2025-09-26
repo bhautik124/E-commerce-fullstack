@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { asynchFetchUserDetails } from "../store/actions/FetchUserApi";
 import { showSuccessToast, showErrorToast, showInfoToast } from "../utils/toast.jsx";
 
@@ -48,7 +48,7 @@ const UserRegister = () => {
       showInfoToast("Creating account...");
       
       const res = await axios.post(
-        "http://localhost:8000/user/createUser",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/user/createUser",
         { 
           username: username.trim(), 
           email: email.trim().toLowerCase(), 

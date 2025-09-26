@@ -41,7 +41,7 @@ const Product = ({ cartItems, setCartItems }) => {
       showInfoToast("Adding to cart...");
       
       const response = await axios.post(
-        "http://localhost:8000/cart/createCart",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/cart/createCart",
         {
           userId,
           productId: product._id,
@@ -100,7 +100,7 @@ const Product = ({ cartItems, setCartItems }) => {
       try {
         showInfoToast("Loading products...");
         
-        const response = await axios.get("http://localhost:8000/product/get", {
+        const response = await axios.get("https://e-commerce-fullstack-backend-vevk.onrender.com/product/get", {
           withCredentials: true,
         });
         

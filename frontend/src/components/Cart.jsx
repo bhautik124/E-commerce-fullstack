@@ -13,7 +13,7 @@ const Cart = ({ cartItems, updateCartItems }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/cart/getCart", {
+        const response = await axios.get("https://e-commerce-fullstack-backend-vevk.onrender.com/cart/getCart", {
           withCredentials: true,
         });
 
@@ -39,7 +39,7 @@ const Cart = ({ cartItems, updateCartItems }) => {
       showInfoToast("Removing product...");
       
       const response = await axios.delete(
-        "http://localhost:8000/cart/remover",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/cart/remover",
         {
           data: {
             userId,
@@ -102,7 +102,7 @@ const Cart = ({ cartItems, updateCartItems }) => {
 
     try {
       const response = await axios.patch(
-        "http://localhost:8000/cart/updatequantity",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/cart/updatequantity",
         {
           userId,
           productId: itemId,

@@ -47,7 +47,7 @@ const Contact = () => {
       showInfoToast("Submitting form...");
       
       const response = await axios.post(
-        "http://localhost:8000/contect/contectform",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/contect/contectform",
         {
           ...formdata,
           name: formdata.name.trim(),

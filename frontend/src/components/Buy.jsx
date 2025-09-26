@@ -32,7 +32,7 @@ const Buy = ({ cartItems, updateCartItems }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/cart/getCart", {
+        const response = await axios.get("https://e-commerce-fullstack-backend-vevk.onrender.com/cart/getCart", {
           withCredentials: true,
         });
         if (response.status === 200) {
@@ -81,11 +81,11 @@ const Buy = ({ cartItems, updateCartItems }) => {
       showInfoToast("Validating coupon...");
       
       const response = await axios.get(
-        `http://localhost:8000/payment/coupons/${couponCode.trim()}`,
-        { withCredentials: true }
-      );
-      
-      if (response.data.success) {
+        `https://e-commerce-fullstack-backend-vevk.onrender.com/payment/coupons/${couponCode.trim()}`,
+        {
+          withCredentials: true,
+        }
+      );      if (response.data.success) {
         setDiscount(response.data.coupon.discount);
         showSuccessToast(`Congratulations! ${response.data.coupon.discount}% discount applied`);
       } else {
@@ -179,7 +179,7 @@ const Buy = ({ cartItems, updateCartItems }) => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/payment/paymentdetail",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/payment/paymentdetail",
         paymentData,
         { withCredentials: true }
       );

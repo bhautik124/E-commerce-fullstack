@@ -4,7 +4,7 @@ import { showErrorToast, showSuccessToast } from "../../utils/toast.jsx";
 
 export const asynchFetchUserDetails = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:8000/user/check-auth", {
+    const response = await axios.get("https://e-commerce-fullstack-backend-vevk.onrender.com/user/check-auth", {
       withCredentials: true, 
     });
     

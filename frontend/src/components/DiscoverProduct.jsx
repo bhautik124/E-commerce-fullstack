@@ -23,7 +23,7 @@ const DiscoverProduct = ({ cartItems, updateCartItems }) => {
       try {
         showInfoToast("Loading product...");
         
-        const response = await fetch(`http://localhost:8000/product/get/${id}`);
+        const response = await fetch(`https://e-commerce-fullstack-backend-vevk.onrender.com/product/get/${id}`);
         const data = await response.json();
         
         if (response.ok) {
@@ -49,7 +49,7 @@ const DiscoverProduct = ({ cartItems, updateCartItems }) => {
     const fetchSuggestProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/product/get/${id}/suggestions`
+          `https://e-commerce-fullstack-backend-vevk.onrender.com/product/get/${id}/suggestions`
         );
         const data = await response.json();
         
@@ -82,7 +82,7 @@ const DiscoverProduct = ({ cartItems, updateCartItems }) => {
       showInfoToast("Adding to cart...");
       
       const response = await axios.post(
-        "http://localhost:8000/cart/createCart",
+        "https://e-commerce-fullstack-backend-vevk.onrender.com/cart/createCart",
         {
           userId,
           productId: product._id,
