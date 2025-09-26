@@ -29,7 +29,12 @@ module.exports.registerUser = async (req, res) => {
       process.env.JWT_SECRET_KEY
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 24 * 60 * 60 * 1000 // 1 day
+    });
     res.status(201).send({ token, user: createUser });
   } catch (error) {
     res.status(404).send(error.message);
@@ -53,7 +58,12 @@ module.exports.loginUser = async (req, res) => {
       process.env.JWT_SECRET_KEY
     );
 
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 24 * 60 * 60 * 1000 // 1 day
+    });
     res.status(200).json({ token, user });
   } catch (error) {
     res.status(404).send(error.message);
@@ -63,7 +73,12 @@ module.exports.loginUser = async (req, res) => {
 
 module.exports.logoutUser = async (req, res)=>{
     try {
-        res.cookie("token" , "")
+        res.cookie("token", "", {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+          expires: new Date(0)
+        });
         res.status(200).json({message: "Logged out successfully"})
     } catch (error) {
         res.status(404).send(error.message);

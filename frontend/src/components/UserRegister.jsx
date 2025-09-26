@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import api from "../utils/api.js";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { asynchFetchUserDetails } from "../store/actions/FetchUserApi";
@@ -48,15 +48,14 @@ const UserRegister = () => {
     try {
       showInfoToast("Creating account...");
       
-      const res = await axios.post(
-        "https://e-commerce-fullstack-backend-vevk.onrender.com/user/createUser",
+      const res = await api.post(
+        "/user/createUser",
         { 
           username: username.trim(), 
           email: email.trim().toLowerCase(), 
           phone: phone.trim(), 
           password 
-        },
-        { withCredentials: true }
+        }
       );
 
       if (res.status === 201) {

@@ -19,9 +19,29 @@ app.use(cookieParser());
 // Apply CORS middleware before routes
 app.use(
   cors({
-    origin: "https://e-commerce-fullstack-frontend.onrender.com", // Allow requests from your deployed frontend
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    origin: function (origin, callback) {
+      // Allow requests from your deployed frontend and localhost for development
+      const allowedOrigins = [
+        "https://e-commerce-fullstack-frontend.onrender.com",
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:5173"
+      ];
+      
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true, // Enable cookies or authentication tokens
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   })
 );
 

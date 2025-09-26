@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import api from "../utils/api.js";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { asynchFetchUserDetails } from "../store/actions/FetchUserApi";
@@ -29,10 +29,9 @@ const UserLogin = ({ setUser }) => {
     try {
       showInfoToast("Logging in...");
       
-      const res = await axios.post(
-        "https://e-commerce-fullstack-backend-vevk.onrender.com/user/loginUser",
-        { email: email.trim().toLowerCase(), password },
-        { withCredentials: true }
+      const res = await api.post(
+        "/user/loginUser",
+        { email: email.trim().toLowerCase(), password }
       );
 
       if (res.status === 200) {
