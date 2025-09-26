@@ -1,0 +1,108 @@
+/* Professional Toast Styles for Custom Components */
+.Toastify__toast-container {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  top: 20px !important;
+  z-index: 9999 !important;
+}
+
+.Toastify__toast {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-height: auto !important;
+  margin-bottom: 8px !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Custom slide animations */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+.animate-slide-in-down {
+  animation: slideInDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Override default toast animations */
+.Toastify__bounce-enter--top-center {
+  animation: slideInDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.Toastify__bounce-exit--top-center {
+  animation: slideOutUp 0.3s ease-in !important;
+}
+
+/* Remove default styling for custom components */
+.Toastify__toast--success,
+.Toastify__toast--error,
+.Toastify__toast--info,
+.Toastify__toast--warning {
+  background: transparent !important;
+  border: none !important;
+  color: inherit !important;
+}
+
+.Toastify__progress-bar {
+  display: none !important;
+}
+
+.Toastify__toast-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+.Toastify__close-button {
+  display: none !important;
+}
+
+/* Remove default icons */
+.Toastify__toast-icon {
+  display: none !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Toastify__toast-container {
+    left: 8px !important;
+    right: 8px !important;
+    top: 70px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  
+  .Toastify__toast {
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .Toastify__toast {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  }
+}
